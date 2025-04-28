@@ -82,7 +82,6 @@ button{
 .contactintro button{
   color:black;
   border: 1px solid black;
-    height:400px;
 }
 
 button:hover{
@@ -91,4 +90,8 @@ button:hover{
 
 a:hover{
   cursor:pointer;
+}
+
+.MyProjects{
+  margin: 10px;
 }
