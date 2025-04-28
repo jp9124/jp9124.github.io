@@ -1,0 +1,61 @@
+
+*{
+  margin:0px;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.header{
+  background-color: brown;
+  padding:30px;
+  display: flex;
+  justify-content: space-between;
+  color:white;
+  position: sticky; 
+  top:0;
+}
+
+.header a {
+  color:white;
+  text-decoration: none;
+  padding: 0 20px 0 20px;
+}
+
+.introcontent{
+  color:black;
+}
+.directories{
+  display:flex;
+  justify-content: space-around;
+}
+.directories a{
+  color: white;
+  text-decoration: none;
+}
+
+.intro{
+  background-color: red;
+  height:960px;
+}
+.introcontent p{
+  font-size:100px;
+}
+
+.projectintro{
+  background-color:green;
+  height:1010px;
+
+}
+
+.skillsintro{
+  background-color:pink;
+  height:1070px;
+
+}
+
+.contactintro{
+  background-color:white;
+  height:1070px;
+
+}
