@@ -4,6 +4,7 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  cursor:default;
 }
 
 .header{
@@ -37,9 +38,11 @@
 .intro{
   background-color: red;
   height:960px;
+
 }
 .introcontent p{
   font-size:100px;
+  
 }
 
 .projectintro{
@@ -58,4 +61,21 @@
   background-color:white;
   height:1070px;
 
+}
+
+button{
+  padding:20px 60px ;
+  color:white;
+  border: 1px solid white;
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 7px;
+}
+
+button:hover{
+  cursor:pointer;
+}
+
+a:hover{
+  cursor:pointer;
 }
