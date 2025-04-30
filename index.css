@@ -95,3 +95,10 @@ a:hover{
 .MyProjects{
   margin: 10px;
 }
+
+td{
+  padding:0 50px;
+}
+th{
+  text-align: left;
+}
