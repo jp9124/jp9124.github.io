@@ -26,6 +26,11 @@
 .introcontent{
   color:black;
 }
+.intro{
+  background-image: url("files/pexels-rachel-1147059-2187050.jpg");
+  text-align: center;
+  background-size: cover;
+}
 .intro img{
   width: 40px;
   align-self: center;
@@ -48,7 +53,7 @@
 
 }
 .introcontent h1{
-  font-size:70px;
+  font-size:60px;
   font-weight: normal;
 }
 
@@ -101,4 +106,11 @@ td{
 }
 th{
   text-align: left;
+}
+.logos{
+  margin: 50px;
+}
+
+.experiencepage{
+  padding:15px;
 }
