@@ -7,110 +7,62 @@
   cursor:default;
 }
 
-.header{
-  background-color: brown;
-  padding:30px;
-  display: flex;
-  justify-content: space-between;
-  color:white;
-  position: sticky; 
-  top:0;
+table{
+  justify-content: left;
 }
-
-.header a {
-  color:white;
-  text-decoration: none;
-  padding: 0 20px 0 20px;
-}
-
-.introcontent{
-  color:black;
-}
-.intro{
-  background-image: url("files/pexels-rachel-1147059-2187050.jpg");
-  text-align: center;
-  background-size: cover;
-}
-.intro img{
-  width: 40px;
-  align-self: center;
-}
-.intro img:hover{
-  cursor:pointer;
-}
-.directories{
-  display:flex;
-  justify-content: space-around;
-}
-.directories a{
-  color: white;
-  text-decoration: none;
-}
-
-.intro{
-  background-color: red;
-  height:960px;
-
-}
-.introcontent h1{
-  font-size:60px;
-  font-weight: normal;
-}
-
-.projectintro{
-  background-color:green;
-  height:1010px;
-
-}
-
-.skillsintro{
-  background-color:pink;
-  height:1070px;
-
-}
-
-.contactintro{
-  background-color:white;
-  height:400px;
-
-}
-
-button{
-  padding:20px 60px ;
-  color:white;
-  border: 1px solid white;
-  background-color: transparent;
-  font-size: 20px;
-  border-radius: 7px;
-}
-
-.contactintro button{
-  color:black;
-  border: 1px solid black;
-}
-
-button:hover{
-  cursor:pointer;
-}
-
-a:hover{
-  cursor:pointer;
-}
-
-.MyProjects{
-  margin: 10px;
-}
-
 td{
-  padding:0 50px;
+  padding: 5px 20px;
 }
 th{
-  text-align: left;
-}
-.logos{
-  margin: 50px;
+  padding-top: 40px;
 }
 
-.experiencepage{
-  padding:15px;
+ul{
+  padding-left: 30px;
+}
+
+/* Nav Bar */
+nav{
+  background-color: #c7c9ca;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+nav ul li{
+  display:inline;
+  margin: 50px;
+}
+nav ul li a{
+  color:white;
+  text-decoration: none;
+}
+
+/* Main content - Global */
+.container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+.container-left{
+  display:flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding:50px 200px;
+}
+
+/* Home page */
+
+#name{
+  padding: 20% 0 0 0;
+  font-size: 50px;
+}
+#aboutme{
+  font-size: 40px;
+}
+#contacts img{
+  width:50px;
+  margin: 0 20px;
 }
