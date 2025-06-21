@@ -14,6 +14,8 @@ td{
 }
 th{
   padding-top: 40px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 ul{
@@ -32,11 +34,16 @@ nav{
 nav ul li{
   display:flex;
   padding:0;
-  margin:0;
-}
-nav ul li{
   display:inline;
   margin: 0 25px;
+}
+@media only screen and (max-width: 400px){
+
+  nav ul{
+    
+    padding-left: 0;
+    display:grid;
+  }
 }
 nav ul li a{
   color:white;
@@ -51,14 +58,19 @@ nav ul li a{
   align-items: center;
   row-gap: 20px;
   justify-content: space-between;
+  text-align: center;
+  padding:50px;
 }
 .container-left{
   display:flex;
   flex-direction: column;
   row-gap: 20px;
-  padding:50px 200px;
+  padding:50px
 }
 
+.container-left h1 h2 h3 p{
+  margin:0px;
+}
 /* Home page */
 
 #name{
@@ -78,4 +90,8 @@ nav ul li a{
 #contacts img:hover{
   cursor:pointer;
   width:50px;
+}
+
+container-left{
+  padding:50px;
 }
