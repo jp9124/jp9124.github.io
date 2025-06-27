@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="index.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jung Park</title>
-    <link rel="icon" type="image/x-icon" href="/files/favicon.ico" />
-    <script src="script.js"></script> 
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <nav>
       <ul>
-        <li> <a href="./index.html">Home</a></li>
-        <li><a href="./projects.html">Projects</a></li>
+        <li><p>About</p></li>
+        <li><a href="./skills.html">Skills</a></li>
+        <li><a href="./education.html">Education</a></li>
         <li><a href="./experience.html">Experience</a></li>
+        <li><a href="./interests.html">Interests</a></li>
       </ul>
     </nav>
-
-
     <div class="container">
-      <div id="name">
-        Jung-Hwan Park
+      <div class="profile">
+        <img src="/image.png" alt="My GitHub Logo Thing" />
+        <h1>Jung Park</h1>
+        <p>Student at University of Calgary</p>
+        <a href="junghwan.park@ucalgary.ca">junghwan.park@ucalgary.ca</a>
+        <a href="https://github.com/jungp22/">github.com/jungp22</a>
       </div>
-      <div id="aboutme">
+      <div class="main">
+        <h2>About</h2>
+
         <p>
-        4th Year Student at UCalgary
+          I'm a Student at University of Calgary, studying Software Engineering.
+          Feel free to look around!
         </p>
-      </div>
-      <div id="contacts">
-        <img src="/files/linkedin_dark.png">
-        <img src="/files/github_dark.svg">
+        <p>A few points about me:</p>
+        <table>
+          <tr>
+            <td>
+              <input type="checkbox" checked /> Born in Seoul, South Korea
+            </td>
+            <td>
+              <input type="checkbox" checked /> Moved to Canada when I was 7
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" checked /> Most played video game:
+              CS:GO/CS2
+            </td>
+            <td>
+              <input type="checkbox" checked /> Favorite game right now:
+              Deltarune
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" checked /> First programming language:
+              JavaScript
+            </td>
+            <td>
+              <input type="checkbox" checked /> Best (and favorite) language:
+              Python
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" checked /> Currently working on full stack
+              development
+            </td>
+            <td>
+              <input type="checkbox" checked /> Always looking for opportunities
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </body>
-
 </html>
