@@ -63,6 +63,16 @@ nav ul li p {
   width: 250px;
   border: 1px solid gray;
 }
+.socials{
+  display:flex;
+
+}
+.socials img{
+    width:30px;
+  height:30px;
+  border-radius: 0px;
+  border:none;
+}
 .profile h1 {
   font-size: 32px;
   font-weight: 100;
@@ -115,6 +125,29 @@ tr th {
 progress {
   width: 80%;
 }
+
+/* Projects */
+table#projects{
+  width:100%;
+}
+.project a{
+  text-decoration: none;
+  color:black;
+}
+.project{
+  background-color: rgb(194, 192, 192);
+  text-align: center;
+  padding:10px;
+  border-radius: 10px;
+}
+.project:hover{
+  background-color: rgb(154, 154, 154);
+}
+.project img{
+  padding:10px;
+  border-radius: 15px;
+}
+
 /* footer */
 .footer {
   display: flex;
