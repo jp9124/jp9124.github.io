@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider } from './ThemeContext';
 import Sidebar from './components/Sidebar';
@@ -12,7 +12,7 @@ import Projects from './pages/Projects';
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <div className="layout">
           <Sidebar />
           <Routes>
@@ -24,7 +24,7 @@ export default function App() {
             <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }
