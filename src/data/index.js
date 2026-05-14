@@ -27,7 +27,7 @@ export const projects = [
   {
     name: 'DoorDash ETA Model',
     image: '/mlproject.png',
-    link: 'https://github.com/jungp22/doordash-eta-prediction-model/tree/main',
+    link: 'https://github.com/jp9124/doordash-eta-prediction-model/tree/main',
     description: 'Regression model to predict delivery ETAs.',
     tags: ['Python', 'scikit-learn', 'ML'],
   },
@@ -62,12 +62,6 @@ export const interests = [
   { icon: '🎬', label: 'Watching movies' },
   { icon: '💻', label: 'Programming' },
   { icon: '🎮', label: 'Playing video games' },
-  {
-    icon: '🟧',
-    label: 'Solving Rubik\'s cubes',
-    link: 'https://www.worldcubeassociation.org/persons/2024PARK23',
-    linkText: 'WCA profile',
-  },
   {
     icon: '📊',
     label: 'LeetCode',
