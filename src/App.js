@@ -1,5 +1,6 @@
 import './App.css';
-import { projects, experience, education, interests, about } from './data';
+import { useEffect, useState } from 'react';
+import { projects, experience, education, interests, about, blogEntries } from './data';
 
 const skillGroups = [
   {
@@ -13,25 +14,83 @@ const skillGroups = [
 ];
 
 const navLinks = [
-  { href: '#about',      label: 'About'      },
-  { href: '#skills',     label: 'Skills'     },
-  { href: '#projects',   label: 'Projects'   },
-  { href: '#experience', label: 'Experience' },
+  { href: '/#about',      label: 'About'      },
+  { href: '/#skills',     label: 'Skills'     },
+  { href: '/#projects',   label: 'Projects'   },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/blog',        label: 'Blog'       },
 ];
 
-export default function App() {
+function getCurrentLocation() {
+  return {
+    pathname: window.location.pathname,
+    hash: window.location.hash,
+  };
+}
+
+function useAppLocation() {
+  const [location, setLocation] = useState(getCurrentLocation);
+
+  useEffect(() => {
+    const updateLocation = () => setLocation(getCurrentLocation());
+
+    window.addEventListener('popstate', updateLocation);
+    window.addEventListener('hashchange', updateLocation);
+
+    return () => {
+      window.removeEventListener('popstate', updateLocation);
+      window.removeEventListener('hashchange', updateLocation);
+    };
+  }, []);
+
+  const navigate = (href) => {
+    window.history.pushState({}, '', href);
+    setLocation(getCurrentLocation());
+  };
+
+  return [location, navigate];
+}
+
+function ScrollToHash({ location }) {
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      return;
+    }
+
+    window.setTimeout(() => {
+      document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+  }, [location.hash, location.pathname]);
+
+  return null;
+}
+
+function Nav({ onNavigate }) {
+  const handleNavigate = (event, href) => {
+    event.preventDefault();
+    onNavigate(href);
+  };
+
+  return (
+    <nav className="nav">
+      <a href="/#hero" className="nav-brand" onClick={(event) => handleNavigate(event, '/#hero')}>
+        Jung Park
+      </a>
+      <ul className="nav-links">
+        {navLinks.map(({ href, label }) => (
+          <li key={href}>
+            <a href={href} onClick={(event) => handleNavigate(event, href)}>{label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function HomePage() {
   return (
     <>
-      {/* ── Nav ── */}
-      <nav className="nav">
-        <a href="#hero" className="nav-brand">Jung Park</a>
-        <ul className="nav-links">
-          {navLinks.map(({ href, label }) => (
-            <li key={href}><a href={href}>{label}</a></li>
-          ))}
-        </ul>
-      </nav>
-
       <main>
         {/* ── Hero ── */}
         <section id="hero" className="hero">
@@ -171,6 +230,57 @@ export default function App() {
           </div>
         </footer>
       </main>
+    </>
+  );
+}
+
+function BlogPage() {
+  return (
+    <main>
+
+      <section className="section section-alt">
+        <div className="container">
+          <div className="blog-list">
+            {blogEntries.map(({ title, date, readTime, summary, tags, content }) => (
+              <article key={title} className="blog-entry">
+                <div className="blog-entry-meta">
+                  <span>{date}</span>
+                  <span>{readTime}</span>
+                </div>
+                <h2 className="blog-entry-title">{title}</h2>
+                <p className="blog-entry-summary">{summary}</p>
+                <div className="blog-tags">
+                  {tags.map(tag => <span key={tag} className="blog-tag">{tag}</span>)}
+                </div>
+                <div className="blog-entry-content">
+                  {content.map(paragraph => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="container">
+          <p>© 2026 Jung Park</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+export default function App() {
+  const [location, navigate] = useAppLocation();
+  const isBlogPage = location.pathname === '/blog';
+
+  return (
+    <>
+      <ScrollToHash location={location} />
+      <Nav onNavigate={navigate} />
+      {isBlogPage ? <BlogPage /> : <HomePage />}
     </>
   );
 }

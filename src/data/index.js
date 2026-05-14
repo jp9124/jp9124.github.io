@@ -76,3 +76,18 @@ export const about = [
   'First programming language: JavaScript',
   'Best (and favorite) language: Python',
 ];
+
+export const blogEntries = [
+  {
+    title: 'First Entry',
+    date: 'May 14, 2026',
+    readTime: '3 min read',
+    summary:
+      'Introduction to the blog and some thoughts after finishing university.',
+    tags: ['Portfolio', 'Reflection', 'Software Engineering'],
+    content: [
+      'Hi, welcome to my first entry! I thought this would be useful to track my progress and development of my career. Right now I have just finished university, and I believe I will do so with honours (with a 3.6+ GPA over the last 60 units) and with the Jason Lang scholarship as well.',
+      'Unfortunately, I did that without really any internship or professional experience of any kind, so that will be something I will need to get soon.'
+    ],
+  },
+];

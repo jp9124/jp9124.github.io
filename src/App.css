@@ -25,6 +25,7 @@
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
 }
 
@@ -281,6 +282,100 @@
 }
 
 /* ─────────────────────────────────────────────
+   Blog
+───────────────────────────────────────────── */
+.blog-hero {
+  padding: 104px 0 88px;
+}
+
+.blog-title {
+  max-width: 760px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 1;
+  color: #1d1d1f;
+  margin-bottom: 24px;
+}
+
+.blog-intro {
+  max-width: 560px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6e6e73;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.blog-entry {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 36px;
+}
+
+.blog-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6e6e73;
+  margin-bottom: 18px;
+}
+
+.blog-entry-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.blog-entry-summary {
+  max-width: 720px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #6e6e73;
+  margin-bottom: 18px;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.blog-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #f2f2f0;
+  color: #6e6e73;
+}
+
+.blog-entry-content {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.blog-entry-content p {
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: #1d1d1f;
+}
+
+/* ─────────────────────────────────────────────
    Experience & Education
 ───────────────────────────────────────────── */
 .exp-edu-grid {
@@ -397,7 +492,8 @@
   }
 
   .nav-links {
-    gap: 18px;
+    gap: 14px;
+    justify-content: flex-end;
   }
 
   .hero {
@@ -422,6 +518,14 @@
 
   .section {
     padding: 64px 0;
+  }
+
+  .blog-hero {
+    padding: 72px 0 64px;
+  }
+
+  .blog-entry {
+    padding: 26px 22px;
   }
 
   .about-layout {
