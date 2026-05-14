@@ -18,7 +18,7 @@ const navLinks = [
   { href: '/#skills',     label: 'Skills'     },
   { href: '/#projects',   label: 'Projects'   },
   { href: '/#experience', label: 'Experience' },
-  { href: '/blog',        label: 'Blog'       },
+  { href: '/#/blog',      label: 'Blog'       },
 ];
 
 function getCurrentLocation() {
@@ -53,7 +53,7 @@ function useAppLocation() {
 
 function ScrollToHash({ location }) {
   useEffect(() => {
-    if (!location.hash) {
+    if (!location.hash || location.hash.startsWith('#/')) {
       window.scrollTo({ top: 0, behavior: 'auto' });
       return;
     }
@@ -274,7 +274,7 @@ function BlogPage() {
 
 export default function App() {
   const [location, navigate] = useAppLocation();
-  const isBlogPage = location.pathname === '/blog';
+  const isBlogPage = location.pathname === '/blog' || location.hash === '#/blog';
 
   return (
     <>
