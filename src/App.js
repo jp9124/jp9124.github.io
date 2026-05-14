@@ -56,9 +56,9 @@ export default function App() {
             <p className="section-label">About</p>
             <div className="about-layout">
               <p className="about-intro">
-                I'm a software engineering student originally from Seoul, South Korea —
-                I moved to Canada when I was 7. I'm currently focused on full stack
-                development and always looking for new opportunities.
+                I'm a new graduate from University of Calgary
+                Majoring in Software Engineering. I'm currently focused on full stack
+                development and looking for new opportunities.
               </p>
               <ul className="about-facts">
                 {about.map((fact, i) => (

@@ -37,7 +37,7 @@ export const experience = [
   {
     role: 'Library Volunteer',
     org: 'Bowness Public Library',
-    duration: '2020 – 2020',
+    duration: '2020',
     location: 'Calgary, AB',
   },
 ];
@@ -46,7 +46,7 @@ export const education = [
   {
     role: 'B.Sc. in Software Engineering',
     org: 'University of Calgary',
-    duration: '2021 – Present',
+    duration: '2021 – 2026',
     location: 'Calgary, Canada',
   },
   {
@@ -73,10 +73,6 @@ export const interests = [
 export const about = [
   'Born in Seoul, South Korea',
   'Moved to Canada when I was 7',
-  'Most played game: CS:GO / CS2',
-  'Favorite game right now: Deltarune',
   'First programming language: JavaScript',
   'Best (and favorite) language: Python',
-  'Currently working on full stack development',
-  'Always looking for opportunities',
 ];
