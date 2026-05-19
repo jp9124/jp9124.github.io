@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { projects, experience, education, interests, about, blogEntries } from './data';
+import { projects, experience, education, interests, about } from './data';
 
 const skillGroups = [
   {
@@ -18,7 +18,6 @@ const navLinks = [
   { href: '/#skills',     label: 'Skills'     },
   { href: '/#projects',   label: 'Projects'   },
   { href: '/#experience', label: 'Experience' },
-  { href: '/#/blog',      label: 'Blog'       },
 ];
 
 function getCurrentLocation() {
@@ -234,53 +233,14 @@ function HomePage() {
   );
 }
 
-function BlogPage() {
-  return (
-    <main>
-
-      <section className="section section-alt">
-        <div className="container">
-          <div className="blog-list">
-            {blogEntries.map(({ title, date, readTime, summary, tags, content }) => (
-              <article key={title} className="blog-entry">
-                <div className="blog-entry-meta">
-                  <span>{date}</span>
-                  <span>{readTime}</span>
-                </div>
-                <h2 className="blog-entry-title">{title}</h2>
-                <p className="blog-entry-summary">{summary}</p>
-                <div className="blog-tags">
-                  {tags.map(tag => <span key={tag} className="blog-tag">{tag}</span>)}
-                </div>
-                <div className="blog-entry-content">
-                  {content.map(paragraph => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <div className="container">
-          <p>© 2026 Jung Park</p>
-        </div>
-      </footer>
-    </main>
-  );
-}
-
 export default function App() {
   const [location, navigate] = useAppLocation();
-  const isBlogPage = location.pathname === '/blog' || location.hash === '#/blog';
 
   return (
     <>
       <ScrollToHash location={location} />
       <Nav onNavigate={navigate} />
-      {isBlogPage ? <BlogPage /> : <HomePage />}
+      <HomePage />
     </>
   );
 }
