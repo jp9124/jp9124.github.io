@@ -31,6 +31,20 @@ export const projects = [
     description: 'Regression model to predict delivery ETAs.',
     tags: ['Python', 'scikit-learn', 'ML'],
   },
+  {
+    name: 'Lotion++',
+    image: '/lotionpp.png',
+    link: 'https://lotionplusplus.netlify.app/',
+    description: 'Notes app built with React; used Terraform to provision AWS services.',
+    tags: ['React', 'Terraform', 'AWS'],
+  },
+  {
+    name: 'ObituaryGPT',
+    image: '/obituarygpt.png',
+    link: 'https://obituarygpt.netlify.app/',
+    description: 'Obituary generator built with React; used Cloudinary, OpenAI API, and Terraform for AWS.',
+    tags: ['React', 'Cloudinary', 'OpenAI API', 'Terraform', 'AWS'],
+  },
 ];
 
 export const experience = [
