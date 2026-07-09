@@ -45,9 +45,18 @@ export const projects = [
     description: 'Obituary generator built with React; used Cloudinary, OpenAI API, and Terraform for AWS.',
     tags: ['React', 'Cloudinary', 'OpenAI API', 'Terraform', 'AWS'],
   },
+  {
+    name: 'Pong',
+    image: '/pong.png',
+    link: 'https://github.com/jp9124/pong',
+    description: 'Recreation of the famous 1972 video game implemented with Rust.',
+    tags: ['Rust', 'Macroquad'],
+  },
 ];
 
-export const experience = [
+export const experience = [];
+
+export const volunteeringExperience = [
   {
     role: 'Library Volunteer',
     org: 'Bowness Public Library',

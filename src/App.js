@@ -1,23 +1,44 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import { projects, experience, education, interests, about } from './data';
+import "./App.css";
+import { useEffect, useState } from "react";
+import {
+  projects,
+  experience,
+  volunteeringExperience,
+  education,
+} from "./data";
 
 const skillGroups = [
   {
-    label: 'Languages',
-    items: ['Python', 'Java', 'C++', 'JavaScript', 'HTML', 'CSS'],
+    label: "Languages",
+    items: ["JavaScript", "TypeScript", "Python", "Java", "C", "C++", "Rust"],
   },
   {
-    label: 'Frameworks & Tools',
-    items: ['React', 'Flask', 'PostgreSQL', 'scikit-learn', 'AWS'],
+    label: "Web & Mobile",
+    items: ["HTML5", "CSS3", "React", "React Native"],
+  },
+  {
+    label: "Backend",
+    items: ["Node.js", "Flask"],
+  },
+  {
+    label: "AI / Machine Learning",
+    items: ["PyTorch", "scikit-learn"],
+  },
+  {
+    label: "Databases",
+    items: ["PostgreSQL", "MySQL", "SQL"],
+  },
+  {
+    label: "Tools & Platforms",
+    items: ["Git", "Docker", "Claude", "AWS", "Terraform"],
   },
 ];
 
 const navLinks = [
-  { href: '/#about',      label: 'About'      },
-  { href: '/#skills',     label: 'Skills'     },
-  { href: '/#projects',   label: 'Projects'   },
-  { href: '/#experience', label: 'Experience' },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
 ];
 
 function getCurrentLocation() {
@@ -33,17 +54,17 @@ function useAppLocation() {
   useEffect(() => {
     const updateLocation = () => setLocation(getCurrentLocation());
 
-    window.addEventListener('popstate', updateLocation);
-    window.addEventListener('hashchange', updateLocation);
+    window.addEventListener("popstate", updateLocation);
+    window.addEventListener("hashchange", updateLocation);
 
     return () => {
-      window.removeEventListener('popstate', updateLocation);
-      window.removeEventListener('hashchange', updateLocation);
+      window.removeEventListener("popstate", updateLocation);
+      window.removeEventListener("hashchange", updateLocation);
     };
   }, []);
 
   const navigate = (href) => {
-    window.history.pushState({}, '', href);
+    window.history.pushState({}, "", href);
     setLocation(getCurrentLocation());
   };
 
@@ -52,13 +73,15 @@ function useAppLocation() {
 
 function ScrollToHash({ location }) {
   useEffect(() => {
-    if (!location.hash || location.hash.startsWith('#/')) {
-      window.scrollTo({ top: 0, behavior: 'auto' });
+    if (!location.hash || location.hash.startsWith("#/")) {
+      window.scrollTo({ top: 0, behavior: "auto" });
       return;
     }
 
     window.setTimeout(() => {
-      document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' });
+      document
+        .querySelector(location.hash)
+        ?.scrollIntoView({ behavior: "smooth" });
     }, 0);
   }, [location.hash, location.pathname]);
 
@@ -73,13 +96,19 @@ function Nav({ onNavigate }) {
 
   return (
     <nav className="nav">
-      <a href="/#hero" className="nav-brand" onClick={(event) => handleNavigate(event, '/#hero')}>
+      <a
+        href="/#hero"
+        className="nav-brand"
+        onClick={(event) => handleNavigate(event, "/#hero")}
+      >
         Jung Park
       </a>
       <ul className="nav-links">
         {navLinks.map(({ href, label }) => (
           <li key={href}>
-            <a href={href} onClick={(event) => handleNavigate(event, href)}>{label}</a>
+            <a href={href} onClick={(event) => handleNavigate(event, href)}>
+              {label}
+            </a>
           </li>
         ))}
       </ul>
@@ -97,12 +126,25 @@ function HomePage() {
             <p className="hero-greeting">Hi, I'm</p>
             <h1 className="hero-name">Jung Park.</h1>
             <p className="hero-sub">
-              Software Engineering Student<br />at the University of Calgary
+              Software Engineering Graduate at <br />
+              the University of Calgary
             </p>
             <div className="hero-links">
               <a href="mailto:junghwan.park@example.com">Email</a>
-              <a href="https://linkedin.com/in/junghwanp" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://github.com/jungp22" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a
+                href="https://linkedin.com/in/junghwanp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/jungp22"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </div>
           </div>
           <img src="/image.png" alt="Jung Park" className="hero-photo" />
@@ -112,18 +154,26 @@ function HomePage() {
         <section id="about" className="section section-alt">
           <div className="container">
             <p className="section-label">About</p>
-            <div className="about-layout">
-              <p className="about-intro">
-                I'm a new graduate from University of Calgary
-                Majoring in Software Engineering. I'm currently focused on full stack
-                development and looking for new opportunities.
-              </p>
-              <ul className="about-facts">
-                {about.map((fact, i) => (
-                  <li key={i}>{fact}</li>
-                ))}
-              </ul>
-            </div>
+            <p className="about-intro">
+              I'm a recent alumni from the University of Calgary majoring in
+              Software Engineering, where I graduated June of 2026 with
+              Distinction. Currently, I am invested in machine learning,
+              developing full-stack applications, and most recently I have been
+              getting into learning rust.
+            </p>
+            <p className="about-intro about-interests">
+              Outside of working, I enjoy listening to music, watching movies,
+              and playing video games. I also like sharpening my problem-solving
+              skills through LeetCode, where you can follow{" "}
+              <a
+                href="https://leetcode.com/u/junghwan_park/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                my progress
+              </a>
+              .
+            </p>
           </div>
         </section>
 
@@ -136,8 +186,10 @@ function HomePage() {
                 <div key={label} className="skill-group">
                   <p className="skill-group-label">{label}</p>
                   <div className="skill-tags">
-                    {items.map(item => (
-                      <span key={item} className="skill-tag">{item}</span>
+                    {items.map((item) => (
+                      <span key={item} className="skill-tag">
+                        {item}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -166,7 +218,11 @@ function HomePage() {
                     <h3 className="project-name">{name}</h3>
                     <p className="project-desc">{description}</p>
                     <div className="project-tags">
-                      {tags.map(t => <span key={t} className="project-tag">{t}</span>)}
+                      {tags.map((t) => (
+                        <span key={t} className="project-tag">
+                          {t}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </a>
@@ -178,47 +234,51 @@ function HomePage() {
         {/* ── Experience & Education ── */}
         <section id="experience" className="section">
           <div className="container">
+            <p className="section-label">Experience</p>
             <div className="exp-edu-grid">
+              {experience.length > 0 && (
+                <div>
+                  <p className="timeline-group-label">
+                    Professional Experience
+                  </p>
+                  {experience.map(({ role, org, duration, location }) => (
+                    <div key={role} className="timeline-item">
+                      <p className="timeline-role">{role}</p>
+                      <p className="timeline-org">{org}</p>
+                      <p className="timeline-meta">
+                        {duration} · {location}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div>
-                <p className="section-label">Experience</p>
-                {experience.map(({ role, org, duration, location }) => (
-                  <div key={role} className="timeline-item">
-                    <p className="timeline-role">{role}</p>
-                    <p className="timeline-org">{org}</p>
-                    <p className="timeline-meta">{duration} · {location}</p>
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="section-label">Education</p>
+                <p className="timeline-group-label">Education</p>
                 {education.map(({ role, org, duration, location }) => (
                   <div key={role} className="timeline-item">
                     <p className="timeline-role">{role}</p>
                     <p className="timeline-org">{org}</p>
-                    <p className="timeline-meta">{duration} · {location}</p>
+                    <p className="timeline-meta">
+                      {duration} · {location}
+                    </p>
                   </div>
                 ))}
               </div>
+              <div>
+                <p className="timeline-group-label">Volunteering Experience</p>
+                {volunteeringExperience.map(
+                  ({ role, org, duration, location }) => (
+                    <div key={role} className="timeline-item">
+                      <p className="timeline-role">{role}</p>
+                      <p className="timeline-org">{org}</p>
+                      <p className="timeline-meta">
+                        {duration} · {location}
+                      </p>
+                    </div>
+                  ),
+                )}
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* ── Interests ── */}
-        <section className="section section-alt">
-          <div className="container">
-            <p className="section-label">Interests</p>
-            <ul className="interests-list">
-              {interests.map(({ label, link, linkText }) => (
-                <li key={label} className="interest-item">
-                  <span>{label}</span>
-                  {link && (
-                    <a href={link} target="_blank" rel="noopener noreferrer" className="interest-link">
-                      {linkText} ↗
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 

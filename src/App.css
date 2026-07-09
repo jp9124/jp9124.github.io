@@ -60,8 +60,8 @@
 }
 
 .hero-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 300;
+  font-family: inherit;
+  font-weight: 600;
   font-size: clamp(68px, 9.5vw, 116px);
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -132,57 +132,49 @@
 /* ─────────────────────────────────────────────
    About
 ───────────────────────────────────────────── */
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: start;
-}
-
 .about-intro {
+  max-width: 760px;
   font-size: 1.15rem;
   line-height: 1.8;
   color: #1d1d1f;
 }
 
-.about-facts {
-  display: flex;
-  flex-direction: column;
+.about-interests {
+  margin-top: 24px;
 }
 
-.about-facts li {
-  font-size: 0.875rem;
+.about-intro a {
+  color: #1d1d1f;
+  border-bottom: 1px solid rgba(29, 29, 31, 0.35);
+  padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.about-intro a:hover {
   color: #6e6e73;
-  padding: 13px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-  line-height: 1.4;
-}
-
-.about-facts li:first-child {
-  padding-top: 0;
-}
-
-.about-facts li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  border-color: transparent;
 }
 
 /* ─────────────────────────────────────────────
    Skills
 ───────────────────────────────────────────── */
 .skills-groups {
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 56px;
+}
+
+.skill-group {
+  padding-left: 18px;
+  border-left: 2px solid rgba(29, 29, 31, 0.14);
 }
 
 .skill-group-label {
-  font-size: 0.72rem;
+  font-size: 0.96rem;
   font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: #6e6e73;
-  margin-bottom: 14px;
+  letter-spacing: 0;
+  color: #1d1d1f;
+  margin-bottom: 12px;
 }
 
 .skill-tags {
@@ -380,13 +372,22 @@
 ───────────────────────────────────────────── */
 .exp-edu-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px 80px;
+}
+
+.timeline-group-label {
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #1d1d1f;
+  margin-bottom: 22px;
 }
 
 .timeline-item {
-  padding-bottom: 28px;
+  padding: 0 0 28px 18px;
   margin-bottom: 28px;
+  border-left: 2px solid rgba(29, 29, 31, 0.14);
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
@@ -397,10 +398,10 @@
 }
 
 .timeline-role {
-  font-size: 0.975rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #1d1d1f;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   margin-bottom: 4px;
 }
 
@@ -433,7 +434,6 @@
   color: #1d1d1f;
 }
 
-/* right column gets a left divider */
 .interest-item:nth-child(even) {
   padding-left: 48px;
   border-left: 1px solid rgba(0, 0, 0, 0.07);
@@ -443,7 +443,6 @@
   padding-right: 48px;
 }
 
-/* remove bottom border on last row */
 .interest-item:nth-last-child(-n+2) {
   border-bottom: none;
 }
@@ -528,12 +527,11 @@
     padding: 26px 22px;
   }
 
-  .about-layout {
+  .projects-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
-  .projects-grid {
+  .skills-groups {
     grid-template-columns: 1fr;
   }
 
