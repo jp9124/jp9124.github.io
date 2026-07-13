@@ -1,14 +1,3 @@
-export const skills = [
-  { name: 'Python', level: 95 },
-  { name: 'Java', level: 85 },
-  { name: 'C++', level: 80 },
-  { name: 'HTML', level: 90 },
-  { name: 'CSS', level: 75 },
-  { name: 'JavaScript', level: 70 },
-  { name: 'React', level: 50 },
-  { name: 'AWS', level: 30 },
-];
-
 export const projects = [
   {
     name: 'Wordle',
@@ -78,24 +67,4 @@ export const education = [
     duration: '2018 – 2021',
     location: 'Calgary, Canada',
   },
-];
-
-export const interests = [
-  { icon: '🎵', label: 'Listening to music' },
-  { icon: '🎬', label: 'Watching movies' },
-  { icon: '💻', label: 'Programming' },
-  { icon: '🎮', label: 'Playing video games' },
-  {
-    icon: '📊',
-    label: 'LeetCode',
-    link: 'https://leetcode.com/u/junghwan_park/',
-    linkText: 'my progress',
-  },
-];
-
-export const about = [
-  'Born in Seoul, South Korea',
-  'Moved to Canada when I was 7',
-  'First programming language: JavaScript',
-  'Best (and favorite) language: Python',
 ];

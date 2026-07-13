@@ -40,6 +40,24 @@
   opacity: 0.5;
 }
 
+.theme-toggle {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 999px;
+  padding: 6px 11px;
+  background: transparent;
+  color: #1d1d1f;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: #f2f2f0;
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
 /* ─────────────────────────────────────────────
    Hero
 ───────────────────────────────────────────── */
@@ -472,6 +490,129 @@
   color: #6e6e73;
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 18px;
+  font-size: 0.78rem;
+  color: #6e6e73;
+}
+
+.footer-links a {
+  color: #1d1d1f;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: #6e6e73;
+}
+
+/* ─────────────────────────────────────────────
+   Dark mode
+───────────────────────────────────────────── */
+html[data-theme="dark"] body {
+  background: #1d1d1f;
+  color: #f5f5f7;
+}
+
+html[data-theme="dark"] .nav {
+  background: rgba(29, 29, 31, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="dark"] .nav-brand,
+html[data-theme="dark"] .nav-links a,
+html[data-theme="dark"] .hero-name,
+html[data-theme="dark"] .about-intro,
+html[data-theme="dark"] .project-name,
+html[data-theme="dark"] .skill-tag,
+html[data-theme="dark"] .skill-group-label,
+html[data-theme="dark"] .timeline-group-label,
+html[data-theme="dark"] .timeline-role,
+html[data-theme="dark"] .timeline-org,
+html[data-theme="dark"] .interest-item,
+html[data-theme="dark"] .blog-title,
+html[data-theme="dark"] .blog-entry-title,
+html[data-theme="dark"] .blog-entry-content p,
+html[data-theme="dark"] .footer-links a {
+  color: #f5f5f7;
+}
+
+html[data-theme="dark"] .hero-greeting,
+html[data-theme="dark"] .hero-sub,
+html[data-theme="dark"] .section-label,
+html[data-theme="dark"] .project-desc,
+html[data-theme="dark"] .project-tag,
+html[data-theme="dark"] .timeline-meta,
+html[data-theme="dark"] .blog-intro,
+html[data-theme="dark"] .blog-entry-meta,
+html[data-theme="dark"] .blog-entry-summary,
+html[data-theme="dark"] .footer p,
+html[data-theme="dark"] .footer-links {
+  color: #a1a1a6;
+}
+
+html[data-theme="dark"] .section-alt,
+html[data-theme="dark"] .skill-tag,
+html[data-theme="dark"] .project-tag,
+html[data-theme="dark"] .blog-tag,
+html[data-theme="dark"] .theme-toggle:hover,
+html[data-theme="dark"] .theme-toggle:focus-visible {
+  background: #2c2c2e;
+}
+
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .blog-entry {
+  background: #242426;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="dark"] .skill-tag {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="dark"] .skill-group,
+html[data-theme="dark"] .timeline-item {
+  border-left-color: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="dark"] .timeline-item,
+html[data-theme="dark"] .interest-item,
+html[data-theme="dark"] .footer {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="dark"] .project-img-wrap {
+  background: #3a3a3c;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f5f5f7;
+}
+
+html[data-theme="dark"] .hero-links a,
+html[data-theme="dark"] .about-intro a {
+  color: #f5f5f7;
+  border-bottom-color: rgba(245, 245, 247, 0.45);
+}
+
+html[data-theme="dark"] .hero-links a:hover,
+html[data-theme="dark"] .about-intro a:hover,
+html[data-theme="dark"] .footer-links a:hover {
+  color: #a1a1a6;
+}
+
 /* ─────────────────────────────────────────────
    Mobile
 ───────────────────────────────────────────── */
@@ -487,12 +628,22 @@
 
 @media (max-width: 700px) {
   .nav {
-    padding: 0 24px;
+    padding: 0 16px;
+    gap: 12px;
   }
 
   .nav-links {
-    gap: 14px;
+    gap: 10px;
     justify-content: flex-end;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+  }
+
+  .theme-toggle {
+    padding: 5px 8px;
+    font-size: 0.7rem;
   }
 
   .hero {
@@ -542,6 +693,17 @@
 
   .interests-list {
     grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+    gap: 12px 18px;
   }
 
   .interest-item:nth-child(even) {

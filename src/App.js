@@ -88,7 +88,7 @@ function ScrollToHash({ location }) {
   return null;
 }
 
-function Nav({ onNavigate }) {
+function Nav({ onNavigate, theme, onToggleTheme }) {
   const handleNavigate = (event, href) => {
     event.preventDefault();
     onNavigate(href);
@@ -112,6 +112,15 @@ function Nav({ onNavigate }) {
           </li>
         ))}
       </ul>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={onToggleTheme}
+        aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+        aria-pressed={theme === "dark"}
+      >
+        {theme === "light" ? "☾ Dark" : "☀ Light"}
+      </button>
     </nav>
   );
 }
@@ -130,7 +139,7 @@ function HomePage() {
               the University of Calgary
             </p>
             <div className="hero-links">
-              <a href="mailto:junghwan.park@example.com">Email</a>
+              <a href="mailto:junghwan.park@ucalgary.ca">Email</a>
               <a
                 href="https://linkedin.com/in/junghwanp"
                 target="_blank"
@@ -285,7 +294,27 @@ function HomePage() {
         {/* ── Footer ── */}
         <footer className="footer">
           <div className="container">
-            <p>© 2026 Jung Park</p>
+            <div className="footer-content">
+              <p>© 2026 Jung Park</p>
+              <div className="footer-links">
+                <a href="mailto:junghwan.park@ucalgary.ca">Email</a>
+                <a
+                  href="https://linkedin.com/in/junghwanp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://github.com/jungp22"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+                <span>Last updated July 13, 2026</span>
+              </div>
+            </div>
           </div>
         </footer>
       </main>
@@ -295,11 +324,25 @@ function HomePage() {
 
 export default function App() {
   const [location, navigate] = useAppLocation();
+  const [theme, setTheme] = useState(() => {
+    return window.localStorage.getItem("theme") || "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) =>
+      currentTheme === "light" ? "dark" : "light",
+    );
+  };
 
   return (
     <>
       <ScrollToHash location={location} />
-      <Nav onNavigate={navigate} />
+      <Nav onNavigate={navigate} theme={theme} onToggleTheme={toggleTheme} />
       <HomePage />
     </>
   );
